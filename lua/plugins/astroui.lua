@@ -5,7 +5,7 @@
 
 ---@type LazySpec
 return {
-  "Mofiqul/vscode.nvim",
+  "AstroNvim/astroui",
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme

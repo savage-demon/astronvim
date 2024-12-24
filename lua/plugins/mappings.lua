@@ -1,3 +1,4 @@
+local astro = require "astrocore"
 return {
   {
     "AstroNvim/astrocore",
@@ -22,9 +23,21 @@ return {
           -- ["<Leader>b"] = { name = "Buffers" },
           -- quick save
           -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-          ["<S-h>"] = { ":bprev<cr>", desc = "Previous buffer" },
-          ["<S-l>"] = { ":bnext<cr>", desc = "Next buffer" },
-          ["<Leader>z"] = { ":ZenMode<cr>", desc = "Zen mode" },
+          -- ["<S-h>"] = { ":bprev<cr>", desc = "Previous buffer" },
+          -- ["<S-l>"] = { ":bnext<cr>", desc = "Next buffer" },
+          L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+          H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+          ["<Leader>z"] = { "<cmd>NoNeckPain<cr>", desc = "Toggle NoNeckPain" },
+          ["<Leader>n"] = false,
+          ["-"] = { function() require("oil").open() end, desc = "Open folder in Oil" },
+          ["<Leader>e"] = { function() require("oil").open() end, desc = "Open folder in Oil" },
+          ["<Leader>O"] = false,
+          ["<Leader>o"] = false,
+          ["<C-d>"] = "<C-d>zz",
+          n = "nzz",
+          N = "Nzz",
+          ["<cr>"] = "<cr>zz",
+          -- ["<C-u>"] = "<C-u>zz",
         },
         t = {
           -- setting a mapping to false will disable it
@@ -49,6 +62,14 @@ return {
             function() vim.lsp.buf.declaration() end,
             desc = "Declaration of current symbol",
             cond = "textDocument/declaration",
+          },
+          gd = {
+            function()
+              vim.lsp.buf.definition()
+              vim.cmd "normal! zz"
+            end,
+            desc = "Show the definition of current symbol",
+            cond = "textDocument/definition",
           },
         },
       },

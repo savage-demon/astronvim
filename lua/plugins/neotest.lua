@@ -1,4 +1,4 @@
-local prefix = "<Leader>T"
+local prefix = "<Leader>lt"
 return {
   {
     "nvim-neotest/neotest",

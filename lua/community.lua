@@ -9,7 +9,8 @@ return {
   -- import/override with your plugins folder
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.markdown" },
-  { import = "astrocommunity.pack.php" },
   { import = "astrocommunity.colorscheme.vscode-nvim" },
-  { import = "astrocommunity.editing-support.zen-mode-nvim" },
+  -- { import = "astrocommunity.editing-support.zen-mode-nvim" },
+  -- { import = "astrocommunity.file-explorer.oil-nvim" },
+  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
 }

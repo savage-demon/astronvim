@@ -1,4 +1,3 @@
-local astro = require "astrocore"
 return {
   {
     "AstroNvim/astrocore",
@@ -32,12 +31,16 @@ return {
           ["-"] = { function() require("oil").open() end, desc = "Open folder in Oil" },
           ["<Leader>e"] = { function() require("oil").open() end, desc = "Open folder in Oil" },
           ["<Leader>O"] = false,
-          ["<Leader>o"] = false,
+          ["<Leader>od"] = "<cmd>DBUIToggle<cr>",
           ["<C-d>"] = "<C-d>zz",
           n = "nzz",
           N = "Nzz",
           ["<cr>"] = "<cr>zz",
+          ["<Leader>ll"] = "<cmd>LspRestart<cr>",
           -- ["<C-u>"] = "<C-u>zz",
+        },
+        i = {
+          ["<cr>"] = "<cr>zz",
         },
         t = {
           -- setting a mapping to false will disable it
